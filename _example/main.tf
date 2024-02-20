@@ -13,17 +13,17 @@ module "vpc" {
   name        = "vpc"
   environment = "test"
   label_order = ["name", "environment"]
-  cidr_block = "172.16.0.0/16"
+  cidr_block  = "172.16.0.0/16"
 }
 
 ##-----------------------------------------------------
 ## A subnet is a range of IP addresses in your VPC.
 ##-----------------------------------------------------
 module "public_subnets" {
-  source      = "git::https://github.com/opsstation/terraform-aws-subnet.git?ref=v1.0.0"
-  name        = "public-subnet"
-  environment = "test"
-  label_order = ["name", "environment"]
+  source             = "git::https://github.com/opsstation/terraform-aws-subnet.git?ref=v1.0.0"
+  name               = "public-subnet"
+  environment        = "test"
+  label_order        = ["name", "environment"]
   availability_zones = ["eu-west-1b", "eu-west-1c"]
   vpc_id             = module.vpc.id
   cidr_block         = module.vpc.vpc_cidr_block
@@ -65,7 +65,7 @@ module "ssh" {
 #tfsec:ignore:aws-ec2-no-public-egress-sgr
 #tfsec:ignore:aws-ec2-no-public-ingress-sgr
 module "http_https" {
-  source      = "git::https://github.com/opsstation/terraform-aws-security-group.git?ref=v1.0.0"
+  source = "git::https://github.com/opsstation/terraform-aws-security-group.git?ref=v1.0.0"
 
   name        = "http-https"
   environment = "test"
@@ -114,7 +114,7 @@ module "http_https" {
 ## AWS Identity and Access Management (IAM) roles are entities you create and assign specific permissions to that allow trusted identities such as workforce identities and applications to perform actions in AWS.
 ##--------------------------------------------------------------------------------------------------------------------------
 module "iam-role" {
-  source             = "git::https://github.com/opsstation/terraform-aws-iam-role.git?ref=v1.0.0"
+  source = "git::https://github.com/opsstation/terraform-aws-iam-role.git?ref=v1.0.0"
 
   name               = "iam-role-rrr"
   environment        = "test"
