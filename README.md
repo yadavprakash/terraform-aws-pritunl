@@ -7,7 +7,7 @@
 - [License](#license)
 
 ## Introduction
-This Terraform module provisions an Amazon Elastic File System (EFS) with replication and backup policies.
+Terraform module to create an pritunl resource on AWS with ElasticC IP Addresses and Elastic Block Store.
 
 ## Usage
 To use this module, include it in your Terraform configuration.
@@ -16,7 +16,7 @@ To use this module, include it in your Terraform configuration.
 Example
 ```hcl
 module "pritunl" {
-  source      = "git::https://github.com/opsstation/terraform-aws-kms.git"
+  source      = "git::https://github.com/opsstation/terraform-aws-pritunl.git?ref=v1.0.0"
   name        = "pritunl"
   environment = "test"
 
@@ -52,7 +52,7 @@ module "pritunl" {
 ```
 
 ## Examples
-For detailed examples on how to use this module, please refer to the [examples](https://github.com/opsstation/terraform-aws-efs/tree/master/_example) directory within this repository.
+For detailed examples on how to use this module, please refer to the [examples](https://github.com/opsstation/terraform-aws-pritunl/tree/master/_example) directory within this repository.
 
 ## License
 This Terraform module is provided under the **MIT** License. Please see the [LICENSE](https://github.com/opsstation/terraform-aws-ec2/blob/master/LICENSE) file for more details.

@@ -1,6 +1,6 @@
 #tfsec:ignore:aws-ec2-enable-at-rest-encryption
 module "ec2" {
-  source      = "git::git@github.com:opsstation/terraform-aws-ec2.git"
+  source      = "git::https://github.com/opsstation/terraform-aws-ec2.git?ref=v1.0.0"
   name        = var.name
   environment = var.environment
 
