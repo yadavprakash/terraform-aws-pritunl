@@ -9,7 +9,7 @@ provider "aws" {
 ## A VPC is a virtual network that closely resembles a traditional network that you'd operate in your own data center.
 ##-------------------------------------------------------------------------------------------
 module "vpc" {
-  source      = "git::https://github.com/opsstation/terraform-aws-vpc.git?ref=v1.0.0"
+  source      = "git::https://github.com/yadavprakash/terraform-aws-vpc.git?ref=v1.0.0"
   name        = "vpc"
   environment = "test"
   label_order = ["name", "environment"]
@@ -20,7 +20,7 @@ module "vpc" {
 ## A subnet is a range of IP addresses in your VPC.
 ##-----------------------------------------------------
 module "public_subnets" {
-  source             = "git::https://github.com/opsstation/terraform-aws-subnet.git?ref=v1.0.0"
+  source             = "git::https://github.com/yadavprakash/terraform-aws-subnet.git?ref=v1.0.0"
   name               = "public-subnet"
   environment        = "test"
   label_order        = ["name", "environment"]
@@ -37,7 +37,7 @@ module "public_subnets" {
 ##-----------------------------------------------------
 #tfsec:ignore:aws-ec2-no-public-ingress-sgr
 module "ssh" {
-  source      = "git::https://github.com/opsstation/terraform-aws-security-group.git?ref=v1.0.0"
+  source      = "git::https://github.com/yadavprakash/terraform-aws-security-group.git?ref=v1.0.0"
   name        = "ssh"
   environment = "test"
   vpc_id      = module.vpc.id
@@ -65,7 +65,7 @@ module "ssh" {
 #tfsec:ignore:aws-ec2-no-public-egress-sgr
 #tfsec:ignore:aws-ec2-no-public-ingress-sgr
 module "http_https" {
-  source = "git::https://github.com/opsstation/terraform-aws-security-group.git?ref=v1.0.0"
+  source = "git::https://github.com/yadavprakash/terraform-aws-security-group.git?ref=v1.0.0"
 
   name        = "http-https"
   environment = "test"
@@ -114,7 +114,7 @@ module "http_https" {
 ## AWS Identity and Access Management (IAM) roles are entities you create and assign specific permissions to that allow trusted identities such as workforce identities and applications to perform actions in AWS.
 ##--------------------------------------------------------------------------------------------------------------------------
 module "iam-role" {
-  source = "git::https://github.com/opsstation/terraform-aws-iam-role.git?ref=v1.0.0"
+  source = "git::https://github.com/yadavprakash/terraform-aws-iam-role.git?ref=v1.0.0"
 
   name               = "iam-role-rrr"
   environment        = "test"
@@ -129,7 +129,7 @@ module "iam-role" {
 ## AWS Key Management Service (AWS KMS) lets you create, manage, and control cryptographic keys across your applications and AWS services.
 ##-----------------------------------------------------
 module "kms_key" {
-  source                  = "git::https://github.com/opsstation/terraform-aws-kms.git?ref=v1.0.0"
+  source                  = "git::https://github.com/yadavprakash/terraform-aws-kms.git?ref=v1.0.0"
   name                    = "kms"
   environment             = "test"
   label_order             = ["environment", "name"]
